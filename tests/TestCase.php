@@ -2,10 +2,10 @@
 
 namespace ElegantTechnologies\Grok\Tests;
 
+use ElegantTechnologies\Grok\GrokServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\TestCase as Orchestra;
-use ElegantTechnologies\Grok\GrokServiceProvider;
 
 class TestCase extends Orchestra
 {

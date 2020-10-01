@@ -4,14 +4,12 @@ namespace ElegantTechnologies\Grok\Components\DemoUiChunks;
 
 use Livewire\Component;
 
-
 class BCButtonModal extends Component
 {
-
     public int $count = 205;
     public bool $showingModal = false;
 
-     public function doClick()
+    public function doClick()
     {
         $this->count = $this->count + 5;
     }

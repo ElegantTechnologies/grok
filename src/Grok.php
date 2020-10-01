@@ -2,8 +2,6 @@
 
 namespace ElegantTechnologies\Grok;
 
-
 class Grok
 {
-
 }

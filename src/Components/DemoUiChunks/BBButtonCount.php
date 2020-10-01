@@ -8,7 +8,8 @@ class BBButtonCount extends Component
 {
     public int $count = 99;
 
-    public function doClick() {
+    public function doClick()
+    {
         $this->count = $this->count + 1;
     }
     public function render()
