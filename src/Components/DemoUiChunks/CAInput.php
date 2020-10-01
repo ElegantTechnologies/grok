@@ -4,7 +4,6 @@ namespace ElegantTechnologies\Grok\Components\DemoUiChunks;
 
 use Livewire\Component;
 
-
 interface UpdatesMood
 {
     /**
@@ -25,9 +24,9 @@ class CAInput extends Component
     {
         $this->resetErrorBag();
         \Illuminate\Support\Facades\Log::info("New mood entered:".$this->mood);
-        $data = $this->validate(['mood'=> [
+        $data = $this->validate(['mood' => [
             'required',
-            \Illuminate\Validation\Rule::in(['Love','Hate','Lust'])
+            \Illuminate\Validation\Rule::in(['Love','Hate','Lust']),
         ]]);
         #$this->mood = $data['mood'];
         $this->emit('saved');
