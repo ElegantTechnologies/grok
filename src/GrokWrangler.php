@@ -9,7 +9,6 @@ class GrokWrangler
     public static function grokMe(string $className)
     {
         static::$arrGrokProviders[] = $className;
-
     }
 
     /* Return list of packages that registered for grokking */

@@ -36,4 +36,3 @@ require_once(base_path('vendor/eleganttechnologies/grok/src/routes.php'));
          }
      )->name('grok.grok');
  }
-
