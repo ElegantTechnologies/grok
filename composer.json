@@ -1,11 +1,11 @@
 {
-    "name": "spatie/skeleton",
-    "description": ":package_description",
+    "name": "eleganttechnologies/grok",
+    "description": ":",
     "keywords": [
-        ":vendor_name",
-        ":package_name"
+        "eleganttechnologies",
+        "grok"
     ],
-    "homepage": "https://github.com/:vendor_name/:package_name",
+    "homepage": "https://github.com/:eleganttechnologies/:grok",
     "license": "MIT",
     "authors": [
         {
@@ -27,13 +27,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src",
-            "Spatie\\Skeleton\\Database\\Factories\\": "database/factories"
+            "ElegantTechnologies\\Grok\\": "src",
+            "ElegantTechnologies\\Grok\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "ElegantTechnologies\\Grok\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -48,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
+                "ElegantTechnologies\\Grok\\GrokServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
+                "Grok": "ElegantTechnologies\\Grok\\GrokFacade"
             }
         }
     },

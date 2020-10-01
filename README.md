@@ -1,14 +1,13 @@
-# :package_description
-[![License](https://img.shields.io/github/license/:vendor_name/:package_name)](https://github.com/:vendor_name/:package_name/blob/master/LICENSE.md)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_name/:package_name.svg?style=flat-square)](https://packagist.org/packages/:vendor_name/:package_name)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/:vendor_name/:package_name/run-tests?label=tests)](https://github.com/:vendor_name/:package_name/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![Coverage Status](https://coveralls.io/repos/github/:vendor_name/:package_name/badge.svg?branch=master)](https://coveralls.io/github/:vendor_name/:package_name?branch=master)
+# :
+[![License](https://img.shields.io/github/license/:eleganttechnologies/:grok)](https://github.com/:eleganttechnologies/:grok/blob/master/LICENSE.md)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/:eleganttechnologies/:grok.svg?style=flat-square)](https://packagist.org/packages/:eleganttechnologies/:grok)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/:eleganttechnologies/:grok/run-tests?label=tests)](https://github.com/:eleganttechnologies/:grok/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![Coverage Status](https://coveralls.io/repos/github/:eleganttechnologies/:grok/badge.svg?branch=master)](https://coveralls.io/github/:eleganttechnologies/:grok?branch=master)
 
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_name/:package_name.svg?style=flat-square)](https://packagist.org/packages/:vendor_name/:package_name)
+[![Total Downloads](https://img.shields.io/packagist/dt/:eleganttechnologies/:grok.svg?style=flat-square)](https://packagist.org/packages/:eleganttechnologies/:grok)
 
-**Note:** Run `./configure-skeleton` to get started, or manually replace  ```:author_name``` ```:author_username``` ```:author_email``` ```:vendor_name``` ```:package_name``` ```:package_description``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](.github/CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can also run `configure-skeleton.sh` to do this automatically.
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Really understand how to use your packages
 
 ## Support us
 
@@ -16,30 +15,63 @@ Please send love
 
 ## Installation
 
-You can install the package via composer:
+Via Composer
 
-[ ] Make a local table for testing called 'tmp_laravel_package' (per 'phpunit.xml')
 
-```bash
-composer require :vendor_name/:package_name
+``` bash
+composer require eleganttechnologies/grok
+
+php artisan vendor:publish --tag="ElegantTechnologies"
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --provider="Spatie\Skeleton\SkeletonServiceProvider" --tag="migrations"
-php artisan migrate
+[ ] Add the following line to your routes/web.php file...... oh, there must be a more laravel-ish way
+``` php
+{{-- in 'routes/web.php' --}}
+require_once(base_path('vendor/eleganttechnologies/grok/src/routes/web.php'));
 ```
 
-You can publish the config file with:
-```bash
-php artisan vendor:publish --provider="Spatie\Skeleton\SkeletonServiceProvider" --tag="config"
+[ ] Add a link in the grok pages (wherever is appropriate for your site). In a fresh install of jetstream, you
+would problably add it next to the 'Dashboard' link at the top.
+``` html
+{{-- in 'resources/views/navigation-dropdown.blade.php' --}}
+
+<x-jet-nav-link href="/grok" :active="request()->routeIs('grok*')">
+    Grok
+</x-jet-nav-link>
+``` 
+
+Install (since I don't know Laravel smart enough)
+---
+[ ] Copy css and js to our public. (or make work via laravel when you are smarter)
+``` bash
+cp packages/eleganttechnologies/grok/public/css/prism.css public/css
+cp packages/eleganttechnologies/grok/public/js/prism.js public/js
 ```
+
+Load the css and js.  
+[ ] Add this to 'resources/views/layouts/app.blade.php'
+``` html
+
+<!-- In <head> -->
+<head>
+    ...
+    <!-- Code highlighting 1 of 2-->
+    <link href="/css/prism.css" rel="stylesheet" />
+</head>
+
+<body>
+    ...
+    <!-- Code highlighting 2 of 2 -->
+    <script src="/js/prism.js"></script>
+</body>
+
+```
+
 
 You can grok the routes (when .env(local)) by visiting 
     
-http://test-spatie.test/grok/Spatie/Skeleton/string
-http://test-spatie.test/grok/Spatie/Skeleton/controller
+http://test-eleganttechnologies.test/grok/ElegantTechnologies/Grok/string
+http://test-eleganttechnologies.test/grok/ElegantTechnologies/Grok/controller
 
 This is the contents of the published config file:
 
@@ -51,8 +83,8 @@ return [
 ## Usage
 
 ``` php
-$skeleton = new Spatie\Skeleton();
-echo $skeleton->echoPhrase('Hello, Spatie!');
+$grok = new ElegantTechnologies\Grok();
+echo $grok->echoPhrase('Hello, ElegantTechnologies!');
 ```
 
 ## Testing
@@ -75,7 +107,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [:JJ Rohrer](https://github.com/:JJRohrer)
 - [All Contributors](../../contributors)
 
 ## License

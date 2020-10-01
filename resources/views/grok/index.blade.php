@@ -1,1 +1,1 @@
-Hello from blade in Spatie/Skeleton/groks/index
+Hello from blade in ElegantTechnologies/Grok/groks/index
