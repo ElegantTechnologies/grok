@@ -30,6 +30,9 @@
             <!-- Page Content -->
             <main>
 {{--                <livewire:flash-container />--}}
+                <div class="font-semibold text-2xl text-gray-800 leading-tight">
+                {{$header}}</div>
+                <a href="/grok">Grok</a>
                 {{ $slot }}
             </main>
         </div>

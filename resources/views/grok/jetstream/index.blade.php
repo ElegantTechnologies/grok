@@ -71,7 +71,7 @@
                     <pre><code class="language-php">{!!  $sampleEscaped !!}</code></pre>
 
                     And, in routes/web.php something like this, but more relevant to your site...
-                    <x-grok::tas-sample-from-file language="php" path="packages/eleganttechnologies/grok/routes/web.php"/>
+                    <x-grok::tas-sample-from-file language="php" path="vendor/eleganttechnologies/grok/src/routes.php"/>
 
                     <hr>
                     <x-jet-responsive-nav-link href="/">responsive-Nav Link</x-jet-responsive-nav-link>
@@ -83,11 +83,11 @@
 
                     <x-grok::action-section title="Logo stuff">
                         <x-slot name="description">
-                            @include('grok::groks.jetstream.logo.description')
+                            @include('grok::grok.jetstream.logo.description')
                         </x-slot>
 
                         <x-slot name="content">
-                            @include('grok::groks.jetstream.logo.content')
+                            @include('grok::grok.jetstream.logo.content')
                         </x-slot>
                     </x-grok::action-section>
 
@@ -95,11 +95,11 @@
 
                     <x-grok::action-section title="Titles">
                         <x-slot name="description">
-                            @include('grok::groks.jetstream.title.description')
+                            @include('grok::grok.jetstream.title.description')
                         </x-slot>
 
                         <x-slot name="content">
-                            @include('grok::groks.jetstream.title.content')
+                            @include('grok::grok.jetstream.title.content')
                         </x-slot>
                     </x-grok::action-section>
 

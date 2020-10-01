@@ -21,7 +21,7 @@ Via Composer
 ``` bash
 composer require eleganttechnologies/grok
 
-php artisan vendor:publish --tag="ElegantTechnologies"
+php artisan vendor:publish --Provide="ElegantTechnologies" --tag=Grok
 ```
 
 [ ] Add the following line to your routes/web.php file...... oh, there must be a more laravel-ish way

@@ -44,6 +44,10 @@ class GrokServiceProvider extends ServiceProvider
                     GrokCommand::class,
                 ]
             );
+
+            $this->publishes([
+                 __DIR__.'/../resources/public' => public_path('eleganttechnologies/grok'),
+                ], ['public']);
         }
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'grok');
@@ -110,6 +114,7 @@ class GrokServiceProvider extends ServiceProvider
            And for livewire, getting an alert 'this page timed out'
            #$this->loadRoutesFrom(__DIR__.'/routes.php');
         */
+
         \Livewire::component('grok::a-a-nothing', \ElegantTechnologies\Grok\Components\DemoUiChunks\AANothing::class);
         \Livewire::component('grok::a-b-almost-nothing', \ElegantTechnologies\Grok\Components\DemoUiChunks\ABAlmostNothing::class);
         \Livewire::component('grok::a-c-nothing-but-formatted', \ElegantTechnologies\Grok\Components\DemoUiChunks\ACNothingButFormatted::class);
@@ -121,6 +126,12 @@ class GrokServiceProvider extends ServiceProvider
         \Livewire::component('grok::b-f-button-modal-wire', \ElegantTechnologies\Grok\Components\DemoUiChunks\BFButtonModalWire::class);
         \Livewire::component('grok::b-f-button-modal-wire-form', \ElegantTechnologies\Grok\Components\DemoUiChunks\BFButtonModalWireForm::class);
         \Livewire::component('grok::c-a-input', \ElegantTechnologies\Grok\Components\DemoUiChunks\CAInput::class);
+
+        // GROK
+        if (App::environment(['local', 'testing'])) {
+            \ElegantTechnologies\Grok\GrokWrangler::grokMe(static::class);
+            Route::get('/grok/ElegantTechnologies/Grok', fn () => view('grok::grok/index'));
+        }
     }
 
     public function register()

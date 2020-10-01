@@ -8,6 +8,6 @@ class ACNothingButFormatted extends Component
 {
     public function render()
     {
-        return view('grok::groks.livewire.demo-ui-chunks.a-c-nothing-but-formatted');
+        return view('grok::grok.livewire.demo-ui-chunks.a-c-nothing-but-formatted');
     }
 }

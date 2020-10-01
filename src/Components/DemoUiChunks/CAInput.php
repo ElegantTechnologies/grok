@@ -34,6 +34,6 @@ class CAInput extends Component
     }
     public function render()
     {
-        return view('grok::groks.livewire.demo-ui-chunks.c-a-input');
+        return view('grok::grok.livewire.demo-ui-chunks.c-a-input');
     }
 }

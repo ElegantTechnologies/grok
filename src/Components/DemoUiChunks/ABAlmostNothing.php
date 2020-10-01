@@ -8,6 +8,6 @@ class ABAlmostNothing extends Component
 {
     public function render()
     {
-        return view('grok::groks.livewire.demo-ui-chunks.a-b-almost-nothing');
+        return view('grok::grok.livewire.demo-ui-chunks.a-b-almost-nothing');
     }
 }

@@ -19,6 +19,6 @@ class BCButtonModal extends Component
 
     public function render()
     {
-        return view('grok::groks.livewire.demo-ui-chunks.b-c-button-modal');
+        return view('grok::grok.livewire.demo-ui-chunks.b-c-button-modal');
     }
 }
