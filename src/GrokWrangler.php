@@ -39,6 +39,15 @@ class GrokWrangler
     }
 
 
+    public static function getAskGrok(): array {
+        $url = app('request')->url(); # "http://test-jet.test/grok/ElegantTechnologies/Grok"
+        $arrUrl = explode('/',$url);
+    
+        $vendorNameCamelCase = $arrUrl[4];
+        $packageNameCamelCase = $arrUrl[5];
+        $asrGrok = \ElegantTechnologies\Grok\GrokWrangler::getAsrGrok_byVendorPackage($vendorNameCamelCase, $packageNameCamelCase);
+        return $asrGrok;
+    } 
 
     public static function getAsrGrok_byStaticClass(string $fqnClassName): array
     {

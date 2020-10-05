@@ -62,7 +62,7 @@ class GrokServiceProvider extends ServiceProvider
                         if (App::environment(['local', 'testing'])) {
                             // prefixed url to string
                             Route::get(
-                                '/ElegantTechnologies/Grok/string', // you will absolutely need a prefix in your url
+                                '/ElegantTechnologies/Grok/sample_string', // you will absolutely need a prefix in your url
                                 function () {
                                     return "Hello string via blade prefix";
                                 }
@@ -70,7 +70,7 @@ class GrokServiceProvider extends ServiceProvider
 
                             // prefixed url to blade view
                             Route::get(
-                                '/ElegantTechnologies/Grok/blade',
+                                '/ElegantTechnologies/Grok/sample_blade',
                                 function () {
                                     return view('grok::grok/index');
                                 }
@@ -91,7 +91,7 @@ class GrokServiceProvider extends ServiceProvider
         if (App::environment(['local', 'testing'])) {
             // global url to string
             Route::get(
-                '/grok/ElegantTechnologies/Grok/string',
+                '/grok/ElegantTechnologies/Grok/sample_string',
                 function () {
                     return "Hello string via global url.";
                 }
@@ -99,14 +99,14 @@ class GrokServiceProvider extends ServiceProvider
 
             // global url to blade view
             Route::get(
-                '/grok/ElegantTechnologies/Grok/blade',
+                '/grok/ElegantTechnologies/Grok/sample_blade',
                 function () {
-                    return view('grok::grok/index');
+                    return view('grok::grok/sample_blade');
                 }
             );
 
             // global url to controller
-            Route::get('/grok/ElegantTechnologies/Grok/controller', [GrokController::class, 'sample']);
+            Route::get('/grok/ElegantTechnologies/Grok/sample_controller', [GrokController::class, 'sample']);
         }
 
         /* Configure the routes offered by the application.
@@ -115,17 +115,17 @@ class GrokServiceProvider extends ServiceProvider
            #$this->loadRoutesFrom(__DIR__.'/routes.php');
         */
 
-        \Livewire::component('grok::a-a-nothing', \ElegantTechnologies\Grok\Components\DemoUiChunks\AANothing::class);
-        \Livewire::component('grok::a-b-almost-nothing', \ElegantTechnologies\Grok\Components\DemoUiChunks\ABAlmostNothing::class);
-        \Livewire::component('grok::a-c-nothing-but-formatted', \ElegantTechnologies\Grok\Components\DemoUiChunks\ACNothingButFormatted::class);
-        \Livewire::component('grok::b-a-button', \ElegantTechnologies\Grok\Components\DemoUiChunks\BAButton::class);
-        \Livewire::component('grok::b-b-button-count', \ElegantTechnologies\Grok\Components\DemoUiChunks\BBButtonCount::class);
-        \Livewire::component('grok::b-c-button-modal', \ElegantTechnologies\Grok\Components\DemoUiChunks\BCButtonModal::class);
-        \Livewire::component('grok::b-d-button-modal-dialog', \ElegantTechnologies\Grok\Components\DemoUiChunks\BDButtonModalDialog::class);
-        \Livewire::component('grok::b-e-button-poll-reset', \ElegantTechnologies\Grok\Components\DemoUiChunks\BEButtonPollReset::class);
-        \Livewire::component('grok::b-f-button-modal-wire', \ElegantTechnologies\Grok\Components\DemoUiChunks\BFButtonModalWire::class);
-        \Livewire::component('grok::b-f-button-modal-wire-form', \ElegantTechnologies\Grok\Components\DemoUiChunks\BFButtonModalWireForm::class);
-        \Livewire::component('grok::c-a-input', \ElegantTechnologies\Grok\Components\DemoUiChunks\CAInput::class);
+        //        \Livewire::component('grok::a-a-nothing', \ElegantTechnologies\Grok\Components\OBEDemoUiChunks\AANothing::class);
+        //        \Livewire::component('grok::a-b-almost-nothing', \ElegantTechnologies\Grok\Components\OBEDemoUiChunks\ABAlmostNothing::class);
+        //        \Livewire::component('grok::a-c-nothing-but-formatted', \ElegantTechnologies\Grok\Components\OBEDemoUiChunks\ACNothingButFormatted::class);
+        //        \Livewire::component('grok::b-a-button', \ElegantTechnologies\Grok\Components\OBEDemoUiChunks\BAButton::class);
+        //        \Livewire::component('grok::b-b-button-count', \ElegantTechnologies\Grok\Components\OBEDemoUiChunks\BBButtonCount::class);
+        //        \Livewire::component('grok::b-c-button-modal', \ElegantTechnologies\Grok\Components\OBEDemoUiChunks\BCButtonModal::class);
+        //        \Livewire::component('grok::b-d-button-modal-dialog', \ElegantTechnologies\Grok\Components\OBEDemoUiChunks\BDButtonModalDialog::class);
+        //        \Livewire::component('grok::b-e-button-poll-reset', \ElegantTechnologies\Grok\Components\OBEDemoUiChunks\BEButtonPollReset::class);
+        //        \Livewire::component('grok::b-f-button-modal-wire', \ElegantTechnologies\Grok\Components\OBEDemoUiChunks\BFButtonModalWire::class);
+        //        \Livewire::component('grok::b-f-button-modal-wire-form', \ElegantTechnologies\Grok\Components\OBEDemoUiChunks\BFButtonModalWireForm::class);
+        //        \Livewire::component('grok::c-a-input', \ElegantTechnologies\Grok\Components\OBEDemoUiChunks\CAInput::class);
 
         // GROK
         if (App::environment(['local', 'testing'])) {

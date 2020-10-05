@@ -18,8 +18,8 @@
         #$this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         // Load up each livewire component
-        \Livewire::component('grok::a-a-nothing', \ElegantTechnologies\Grok\Components\DemoUiChunks\AANothing::class);
-        \Livewire::component('grok::a-b-almost-nothing', \ElegantTechnologies\Grok\Components\DemoUiChunks\ABAlmostNothing::class);
+        \Livewire::component('grok::a-a-nothing', \ElegantTechnologies\Grok\Components\OBEDemoUiChunks\AANothing::class);
+        \Livewire::component('grok::a-b-almost-nothing', \ElegantTechnologies\Grok\Components\OBEDemoUiChunks\ABAlmostNothing::class);
         ...
 
     }
