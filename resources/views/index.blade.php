@@ -5,15 +5,12 @@
     <div class="mt-4"/>
     <x-grok::action-section title="Guides" description="Explanations of Stuff">
         <x-slot name="content">
-            @foreach (\ElegantTechnologies\Grok\GrokWrangler::grokkees() as $nameOfAGrokProvider)
+            @foreach (\ElegantTechnologies\Grok\GrokWrangler::grokkees() as $asrAGrokProvider)
                 @php
                 // this works: http://test-jet.test/grok/Spatie/Skeleton/string
-                $arrParts = explode('\\', $nameOfAGrokProvider);
-                $VendorName = $arrParts[0];
-                $PackageName = $arrParts[1];
 
                 @endphp
-                <a class="text-blue-400 underline" href="/grok/{{$VendorName}}/{{$PackageName}}">{{$VendorName}}.{{$PackageName}}</a>
+                <a class="text-blue-400 underline" href="/grok/{{$asrAGrokProvider['vendorNameCamelCase']}}/{{$asrAGrokProvider['packageNameCamelCase']}}">{{$asrAGrokProvider['vendorNameCamelCase']}}.{{$asrAGrokProvider['packageNameCamelCase']}}</a>
                 <br>
             @endforeach
             <p/>

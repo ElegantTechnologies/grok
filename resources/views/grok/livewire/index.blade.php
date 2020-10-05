@@ -6,8 +6,19 @@
     </x-slot>
 
     @php
-        $pathOffRouteToGroks = 'vendor/eleganttechnologies/grok/resources/views/grok/livewire';
-       //@include('tassy::/groks/title/description',['pathOffRouteToGroks'=>$pathOffRouteToGroks])
+    $asrGrokMe = \ElegantTechnologies\Grok\GrokWrangler::getAsrGrok_byStaticClass(\ElegantTechnologies\Grok\GrokServiceProvider::class);
+    /* dd($asrGrokMe);
+      "className" => "ElegantTechnologies\Grok\GrokServiceProvider"
+      "vendorNameCamelCase" => "ElegantTechnologies"
+      "vendorNameLowerCase" => "eleganttechnologies"
+      "vendorNameKebabCase" => "elegant-technologies"
+      "packageNameCamelCase" => "grok"
+      "packageNameKebabCase" => "grok"
+      "grokViewOffPackageRoot" => "eleganttechnologies/grok/resources/views/grok"
+      "bladePrefix" => "grok"
+     */
+        $pathOffRouteToGroks = "vendor/{$asrGrokMe['grokViewOffPackageRoot']}/livewire";
+
     @endphp
 
     <div class="py-12">
@@ -18,6 +29,24 @@
 
 
                     <x-jet-section-border/>
+                     <x-grok::action-section>
+                    <x-slot name="title">
+                       Overview
+                    </x-slot>
+
+                    <x-slot name="description">
+                        <div class="text-xs">
+                        Getting oriented
+
+                        </div>
+                    </x-slot>
+                      <x-slot name="content">
+                          Livewire is a different beast. Each chunk consists of a
+                          1) app/http/livewire/BlahController.php
+                          2) views/resources/livewire/Blah.blade.php
+                      </x-slot>
+                     </x-grok::action-section>
+                     <x-jet-section-border/>
                     <div id="livewirestuff">
                         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
                             <h3 class="text-2xl font-semibold text-gray-800">Now for a bunch of livewire stuff</h3>
@@ -51,7 +80,7 @@
                             <x-jet-section-border/>
                             @livewire('grok::b-f-button-modal-wire')
                             <x-jet-section-border/>
-                            @livewire('grok::b-f-button-modal-wire-form')
+                            livewire('grok::b-f-button-modal-wire-form')
                             <x-jet-section-border/>
                             @livewire('grok::c-a-input')
                             <x-jet-section-border/>

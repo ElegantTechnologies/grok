@@ -1,10 +1,29 @@
 {{--Component that, given the blade path, will automatically link to each grok--}}
 @php
-    $relativePath = "/vendor/$offsetFromVendorPath";
-    $dirNameFromRoot = base_path().$relativePath;
-    //if (!file_exists($fileNameFromRoot)) {
-    //    $code = "The index grok blade is missing:  '$relativePath' is not there.";
-    //}
+    #dd(app('request')->url());
+    $url = app('request')->url(); # "http://test-jet.test/grok/ElegantTechnologies/Grok"
+    $arrUrl = explode('/',$url);
+
+    $vendorNameCamelCase = $arrUrl[4];
+    $packageNameCamelCase = $arrUrl[5];
+
+    #$asrGrok = \ElegantTechnologies\Grok\GrokWrangler::getAsrGrok_byStaticClass($grokMeKey);
+    $asrGrok = \ElegantTechnologies\Grok\GrokWrangler::getAsrGrok_byVendorPackage($vendorNameCamelCase, $packageNameCamelCase);
+    /*dd($asrGrok);
+    array:8 [▼
+      "className" => "ElegantTechnologies\Grok\GrokServiceProvider"
+      "vendorNameCamelCase" => "ElegantTechnologies"
+      "vendorNameLowerCase" => "eleganttechnologies"
+      "vendorNameKebabCase" => "elegant-technologies"
+      "packageNameCamelCase" => "grok"
+      "packageNameKebabCase" => "grok"
+      "grokViewOffVendor" => "resources/views/grok"
+      "bladePrefix" => "grok"
+    ]*/
+    $bladePrefix = $asrGrok['bladePrefix'];
+    #$relativePath = "/vendor/{$asrGrok['grokViewOffPackageRoot']}";
+    $dirNameFromRoot = base_path().DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.$asrGrok['grokViewOffPackageRoot'];
+
     $filesNames = scandir($dirNameFromRoot);
     $dirs = [];
     $fullDirs = [];
@@ -29,7 +48,7 @@
 
                 $indexFileName = "$fullDir/index.blade.php";
                 $indexExists =  file_exists($indexFileName);
-                 $title = $dirName;
+                $title = $dirName;
                   $descriptionFileName = "$fullDir/description.blade.php";
                     $descriptionExists = file_exists($descriptionFileName);
                 @endphp
@@ -47,7 +66,7 @@
 
 
                             <x-slot name="content">
-                               <a href="/grok/{{$vendorNameCamel}}/{{$packageNameCamel}}/{{$dirName}}">{{$dirName}}</a>
+                               <a href="/grok/{{$asrGrok['vendorNameCamelCase']}}/{{$asrGrok['packageNameCamelCase']}}/{{$dirName}}">{{$dirName}}</a>
                             </x-slot>
                         </x-grok::action-section>
 
@@ -68,12 +87,12 @@
 
                     <x-grok::action-section title="{{$title}}">
                         <x-slot name="description">
-                            @include("bladeprefix::/grok/$dirName/description",$attributes->getAttributes())
+                            @include("$bladePrefix::grok/$dirName/description",$attributes->getAttributes())
                         </x-slot>
 
 
                         <x-slot name="content">
-                            @include("bladeprefix::/grok/$dirName/content", $attributes->getAttributes())
+                            @include("$bladePrefix::/grok/$dirName/content", $attributes->getAttributes())
                         </x-slot>
                     </x-grok::action-section>
                 @endif

@@ -6,7 +6,6 @@ require_once(base_path('vendor/eleganttechnologies/grok/src/routes.php'));
 */
 
  if (App::environment(['local', 'testing'])) {
-     #Route::get('/grok', fn () => redirect('/grok/index')); // Default to dashboard
      Route::get(
          '/grok',
          function () {
@@ -15,24 +14,16 @@ require_once(base_path('vendor/eleganttechnologies/grok/src/routes.php'));
      )->name('grok');
 
 
-     Route::get(
-         '/grok/ElegantTechnologies/Grok/jetstream',
-         function () {
-             return view('grok::grok/jetstream/index');
-         }
-     )->name('grok.jetstream');
+     Route::get('/grok/{vendorNameCamelCase}/{packageNameCamelCase}', function ($vendorNameCamelCase, $packageNameCamelCase) {
+         $asrGrok = \ElegantTechnologies\Grok\GrokWrangler::getAsrGrok_byVendorPackage($vendorNameCamelCase, $packageNameCamelCase);
 
-     Route::get(
-         '/grok/ElegantTechnologies/Grok/livewire',
-         function () {
-             return view('grok::grok/livewire/index');
-         }
-     )->name('grok.livewire');
+         return view("{$asrGrok['bladePrefix']}::grok/index");
+     })->name('grok');
 
-     Route::get(
-         '/grok/ElegantTechnologies/Grok/grok',
-         function () {
-             return view('grok::grok/grok/index');
-         }
-     )->name('grok.grok');
+     Route::get('/grok/{vendorNameCamelCase}/{packageNameCamelCase}/{sub}', function ($vendorNameCamelCase, $packageNameCamelCase, $sub) {
+         $asrGrok = \ElegantTechnologies\Grok\GrokWrangler::getAsrGrok_byVendorPackage($vendorNameCamelCase, $packageNameCamelCase);
+         $viewPath = "{$asrGrok['bladePrefix']}::grok/$sub/index";
+
+         return view($viewPath);
+     })->name('grok');
  }

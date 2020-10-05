@@ -20,6 +20,7 @@ class BEButtonPollReset extends Component
     {
         $this->count = $this->count + 1;
 
-        return view('grok::groks.livewire.demo-ui-chunks.b-e-button-poll-reset');
+        return view('grok::grok.livewire.demo-ui-chunks.b-e-button-poll-reset');
+
     }
 }

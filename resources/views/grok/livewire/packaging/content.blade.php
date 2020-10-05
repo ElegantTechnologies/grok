@@ -10,10 +10,10 @@ php artisan make:livewire DemoUiChunks/AANothing
 
 <x-grok::title>Test that it is alive</x-grok::title>
 Change the blade to say something, from...
-@php $pathOffRouteToSample = $pathOffRouteToGroks."/$slug/sample_test_blade_old.blade.php"; @endphp
+@php $pathOffRouteToSample = $pathOffRouteToGroks."/$slug/sample_sample_blade_old.blade.php"; @endphp
 <x-grok::tas-sample-from-file language="html" path="{{$pathOffRouteToSample}}"/>
 to...
-@php $pathOffRouteToSample = $pathOffRouteToGroks."/$slug/sample_test_blade_new.blade.php"; @endphp
+@php $pathOffRouteToSample = $pathOffRouteToGroks."/$slug/sample_sample_blade_new.blade.php"; @endphp
 <x-grok::tas-sample-from-file language="html" path="{{$pathOffRouteToSample}}"/>
 
 

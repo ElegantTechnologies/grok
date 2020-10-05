@@ -32,7 +32,7 @@
 {{--                <livewire:flash-container />--}}
                 <div class="font-semibold text-2xl text-gray-800 leading-tight">
                 {{$header}}</div>
-                <a href="/grok">Grok</a>
+                <a href="/grok">Grok Home</a>
                 {{ $slot }}
             </main>
         </div>

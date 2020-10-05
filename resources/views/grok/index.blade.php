@@ -1,13 +1,9 @@
 <x-grok::grok_page_layout header="ElegantTechnologies.Grok">
-    <x-grok::wide-card>
         <x-grok::grok-index
-            vendorNameLower="eleganttechnologies"
-            vendorNameCamel="ElegantTechnologies"
-            packageNameLower="grok"
-            packageNameCamel="Grok"
-            offsetFromVendorPath="eleganttechnologies/grok/resources/views/grok"
+            grokMeKey="{!! \ElegantTechnologies\Grok\GrokServiceProvider::class !!}"
+            {{-- This is dumb. Use url or source, but please stop flip flopping --}}
         >
         </x-grok::grok-index>
-    </x-grok::wide-card>
+
 </x-grok::grok_page_layout>
 
