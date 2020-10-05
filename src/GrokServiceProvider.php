@@ -129,7 +129,6 @@ class GrokServiceProvider extends ServiceProvider
 
         // GROK
         if (App::environment(['local', 'testing'])) {
-
             \ElegantTechnologies\Grok\GrokWrangler::grokMe(static::class, 'ElegantTechnologies', 'grok', 'resources/views/grok', 'grok');
             #Route::get('/grok/ElegantTechnologies/grok', fn () => view('grok::grok/index'));
         }
