@@ -54,13 +54,14 @@ class GrokWrangler
         $arrParts = explode('\\', $fqnClassName);
         $vendorNameCamelCase = $arrParts[0];
         $packageNameCamelCase = $arrParts[1];
+
         return static::getAsrGrok_byVendorPackage($vendorNameCamelCase, $packageNameCamelCase);
-
     }
-    public static function getAsrGrok_byVendorPackage(string $vendorNameCamelCase, string $packageNameCamelCase): array {
-    $key = "{$vendorNameCamelCase}_{$packageNameCamelCase}";
-    assert(key_exists($key, static::$asrGrokProviders), "key($key) was not in: ". implode(', ', array_keys(static::$asrGrokProviders)));
+    public static function getAsrGrok_byVendorPackage(string $vendorNameCamelCase, string $packageNameCamelCase): array
+    {
+        $key = "{$vendorNameCamelCase}_{$packageNameCamelCase}";
+        assert(key_exists($key, static::$asrGrokProviders), "key($key) was not in: ". implode(', ', array_keys(static::$asrGrokProviders)));
 
-    return static::$asrGrokProviders[$key];
-}
+        return static::$asrGrokProviders[$key];
+    }
 }
