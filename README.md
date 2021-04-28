@@ -6,12 +6,7 @@
 
 [![Total Downloads](https://img.shields.io/packagist/dt/:eleganttechnologies/:grok.svg?style=flat-square)](https://packagist.org/packages/:eleganttechnologies/:grok)
 
-
-Really understand how to use your packages
-
-## Support us
-
-Please send love
+This is a package that is meant to help provide in-sutro explanations to devs
 
 ## Installation
 
@@ -19,15 +14,15 @@ Via Composer
 
 
 ``` bash
-composer require eleganttechnologies/grok
+composer require eleganttechnologies/grok #while in development, add repo and master-dev insert manually into composer and cdo composer update
 
-php artisan vendor:publish --Provide="ElegantTechnologies" --tag=Grok
+php artisan vendor:publish --provider="ElegantTechnologies\Grok\GrokServiceProvider" --tag=public
 ```
 
 [ ] Add the following line to your routes/web.php file...... oh, there must be a more laravel-ish way
 ``` php
 {{-- in 'routes/web.php' --}}
-require_once(base_path('vendor/eleganttechnologies/grok/src/routes/web.php'));
+require_once(base_path('vendor/eleganttechnologies/grok/routes/web.php'));
 ```
 
 [ ] Add a link in the grok pages (wherever is appropriate for your site). In a fresh install of jetstream, you
