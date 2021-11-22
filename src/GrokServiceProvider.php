@@ -2,7 +2,6 @@
 
 namespace ElegantTechnologies\Grok;
 
-use ElegantTechnologies\Grok\Commands\GrokCommand;
 use ElegantTechnologies\Grok\Http\Controllers\GrokController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -15,16 +14,16 @@ class GrokServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes(
                 [
-                    __DIR__ . '/../config/grok.php' => config_path('grok.php'),
+                    __DIR__ . '/../config/grok.php' => config_path('/eleganttechnologies/grok.php'),
                 ],
-                'config'
+                ['config', 'eleganttechnologies-config', 'eleganttechnologies-grok']
             );
 
             $this->publishes(
                 [
                     __DIR__ . '/../resources/views' => base_path('resources/views/vendor/grok'),
                 ],
-                'views'
+                ['views', 'eleganttechnologies-views', 'eleganttechnologies-grok']
             );
 
             $migrationFileName = 'create_grok_table.php';
@@ -35,19 +34,17 @@ class GrokServiceProvider extends ServiceProvider
                             'migrations/' . date('Y_m_d_His', time()) . '_' . $migrationFileName
                         ),
                     ],
-                    'migrations'
+                    ['migrations', 'eleganttechnologies-migrations', 'eleganttechnologies-grok']
                 );
             }
 
-            $this->commands(
-                [
-                    GrokCommand::class,
-                ]
-            );
+
 
             $this->publishes([
                  __DIR__.'/../resources/public' => public_path('eleganttechnologies/grok'),
-                ], ['public']);
+                ],
+                ['public', 'eleganttechnologies-public', 'eleganttechnologies-grok']
+            );
         }
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'grok');
@@ -136,7 +133,7 @@ class GrokServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/grok.php', 'grok');
+        $this->mergeConfigFrom(__DIR__ . '/../config/grok.php', 'eleganttechnologies.grok');
     }
 
     public static function migrationFileExists(string $migrationFileName): bool
