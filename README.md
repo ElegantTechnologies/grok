@@ -16,7 +16,7 @@ Via Composer
 ``` bash
 composer require eleganttechnologies/grok #while in development, add repo and master-dev insert manually into composer and cdo composer update
 
-php artisan vendor:publish --provider="ElegantTechnologies\Grok\GrokServiceProvider" --tag=public
+php artisan vendor:publish --provider="ElegantTechnologies\Grok\GrokServiceProvider" 
 ```
 
 [ ] Add the following line to your routes/web.php file...... oh, there must be a more laravel-ish way
@@ -34,14 +34,6 @@ would problably add it next to the 'Dashboard' link at the top.
     Grok
 </x-jet-nav-link>
 ``` 
-
-Install (since I don't know Laravel smart enough)
----
-[ ] Copy css and js to our public. (or make work via laravel when you are smarter)
-``` bash
-cp packages/eleganttechnologies/grok/public/css/prism.css public/css
-cp packages/eleganttechnologies/grok/public/js/prism.js public/js
-```
 
 Load the css and js.  
 [ ] Add this to 'resources/views/layouts/app.blade.php'
@@ -66,6 +58,7 @@ Load the css and js.
 You can grok the routes (when .env(local)) by visiting 
     
 http://test-eleganttechnologies.test/grok/ElegantTechnologies/Grok/string
+
 http://test-eleganttechnologies.test/grok/ElegantTechnologies/Grok/controller
 
 This is the contents of the published config file:

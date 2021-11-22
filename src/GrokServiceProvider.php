@@ -21,7 +21,7 @@ class GrokServiceProvider extends ServiceProvider
 
             $this->publishes(
                 [
-                    __DIR__ . '/../resources/views' => base_path('resources/views/vendor/grok'),
+                    __DIR__ . '/../resources/views' => base_path('resources/views/vendor/grok-fyi'),
                 ],
                 ['views', 'eleganttechnologies-views', 'eleganttechnologies-grok']
             );
